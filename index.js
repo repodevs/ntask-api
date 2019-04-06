@@ -10,6 +10,7 @@ app.set("json spaces", 4);
 
 
 consign()
+  .include("models")
   .include("routes")
   .into(app);
 
