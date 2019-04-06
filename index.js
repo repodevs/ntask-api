@@ -6,7 +6,8 @@ const app = express();
 
 // Auto load the modules
 consign()
-  .include("models")
+  .include("db.js")
+  .then("models")
   .then("libs/middlewares.js")
   .then("routes")
   .then("libs/boot.js")
