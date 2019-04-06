@@ -3,6 +3,10 @@ import express from "express";
 const PORT = 3000;
 const app = express();
 
+
+app.set("json spaces", 4);
+
+
 // API Home route
 app.get('/', (req, res) => res.json({
     status: "NTask API Home"
