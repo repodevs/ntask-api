@@ -1,8 +1,11 @@
 import express from "express";
 import consign from "consign";
 
+const bodyParser = require('body-parser');
 
 const app = express();
+
+app.use(bodyParser.json());
 
 // Auto load the modules
 consign()
