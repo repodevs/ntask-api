@@ -4,19 +4,8 @@ module.exports = app => {
   /**
    * Routes for `/tasks`
    **/  
-//  app.get("/tasks", (req, res) => {
-//    Tasks.findAll({}).then(tasks => {
-//      res.json({tasks: tasks});
-//    });
-//  });
-
   app.route("/tasks")
-    .all((req, res, next) => {
-      /** Middleware **/ 
-      delete req.body.id;
-      next();
-    })
-    .get((req, res, next) => {
+   .get((req, res, next) => {
       Tasks.findAll({})
         .then(result => res.json(result))
         .catch(error => {
@@ -33,11 +22,7 @@ module.exports = app => {
     ;
 
   app.route("/tasks/:id")
-    .all((req, res, next) => {
-      delete req.body.id;
-      next();
-    })
-    .get((req, res) => {
+   .get((req, res) => {
       Tasks.findOne({where: req.params})
         .then(result => {
           if (result) {
